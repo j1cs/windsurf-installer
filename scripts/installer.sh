@@ -8,8 +8,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 # Variables
-WINDSURF_VERSION="1.4.6"
-DOWNLOAD_URL="https://windsurf-stable.codeiumdata.com/linux-x64/stable/724a915b3b4c73cea3d2c93fc85672d6aa3961e0/Windsurf-linux-x64-${WINDSURF_VERSION}.tar.gz"
+DOWNLOAD_URL=$(curl -s 'https://windsurf-stable.codeium.com/api/update/linux-x64/stable/latest' | awk -F\" '/url/ { print $4 }')
 ICON_URL="https://codeium.com/logo/windsurf_teal_logo.svg"
 INSTALL_DIR="/opt/windsurf"
 BIN_DIR="/usr/local/bin"
@@ -97,14 +96,14 @@ create_dirs "$APPLICATIONS_DIR"
 sudo mkdir -p "$ICONS_DIR" || error "Failed to create icons directory"
 
 # Download files
-log "Downloading Windsurf v${WINDSURF_VERSION}..."
+log "Downloading Windsurf Latest..."
 cd "$TEMP_DIR"
 wget -q --show-progress "$DOWNLOAD_URL" || error "Failed to download Windsurf"
 wget -q --show-progress "$ICON_URL" -O windsurf_icon.svg || error "Failed to download icon"
 
 # Extract archive
 log "Extracting files..."
-tar xzf "Windsurf-linux-x64-${WINDSURF_VERSION}.tar.gz" || error "Failed to extract archive"
+tar xzf Windsurf-linux-x64-*.tar.gz || error "Failed to extract archive"
 
 # Install application
 log "Installing Windsurf..."
