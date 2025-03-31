@@ -27,7 +27,7 @@ Most Linux distributions come with these tools pre-installed. If any are missing
 To install Windsurf, you can run these commands:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/pyyupsk/windsurf-installer/main/scripts/installer.sh | bash
+wget -qO- https://raw.githubusercontent.com/j1cs/windsurf-installer/main/scripts/installer.sh | bash
 
 ```
 
@@ -47,7 +47,7 @@ The installer will:
 To uninstall Windsurf, you can run these commands:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/pyyupsk/windsurf-installer/main/scripts/uninstall.sh | bash
+wget -qO- https://raw.githubusercontent.com/j1cs/windsurf-installer/main/scripts/uninstall.sh | bash
 ```
 
 ## Troubleshooting
